@@ -1,0 +1,41 @@
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{ content: "HTML is easy", date: "2019-05-23" }, ...]
+
+note over browser:
+the browser runs the function 
+that dynamically renders the note 
+list elements
+end note
+
+note over browser:
+The user add a new note (click on button save) 
+and the browser starts the "onsubmit" event. 
+
+The function assigned to this event first prevents
+the default onsubmit actions, then gets the value of
+the first "input" element of the form and creates a new real
+date. Finally adds the note to the notes array, emptys the
+form input element, redraws notes dynamically
+(redrawNotes()) and sends the new note to the
+server (sendToServer(note))
+end note
+
+browser->server: HTTP POST {content: "doing the exercise", date: "2023-07-26T10:07:41.260Z"} https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server-->browser: {"message":"note created"}
+
+note over browser:
+browser executes a console.log() with
+the text response. All this without refresh the page ;)
+end note

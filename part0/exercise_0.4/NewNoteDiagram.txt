@@ -1,0 +1,29 @@
+browser->server: HTTP POST --- {note: "doing the exercise"} --- https://studies.cs.helsinki.fi/exampleapp/new_note
+note over server:
+server add the new note getting the data from
+the text from the "request" and creating the actual 
+date with new Date()
+end note
+note over server:
+then the server add a redirection to "/notes" 
+to the response to refresh the page and see the
+new note in the note list.
+end note
+server-->browser: redirect to https://studies.cs.helsinki.fi/exampleapp/notes
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+note over browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{ content: "HTML is easy", date: "2019-05-23" }, ...]
+
+note over browser:
+browser executes the event handler
+that renders notes to display
+end note
