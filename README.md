@@ -1,7 +1,7 @@
 # FullStackOpenExercises
 Repository for sending exercises for the Full Stack Open course.
 
-GUIDE
+### GUIDE:
 - part0
   - exercise_0.4
   - exercise_0.5
