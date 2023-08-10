@@ -10,3 +10,7 @@ Repository for sending exercises for the Full Stack Open course.
   - courseinfo
   - unicafe
   - anecdotes
+- part2
+  - countriesdata
+  - courseinfo
+  - phonebook
